@@ -6,11 +6,13 @@ public class Bedroom {
     private int capacity;
     private ArrayList<String> typesOfRooms;
     private ArrayList<Guest> guests;
+    private int nightlyRate;
 
-    public Bedroom(int roomNumber, int capacity, ArrayList<String>typesOfRooms){
+    public Bedroom(int roomNumber, int capacity, ArrayList<String>typesOfRooms, int nightlyRate){
         this.roomNumber = roomNumber;
         this.capacity = capacity;
         this.typesOfRooms = new ArrayList<>();
+        this.nightlyRate = nightlyRate;
     }
 
     public int getRoomNumber() {
@@ -26,5 +28,9 @@ public class Bedroom {
         typesOfRooms.add("Double");
         typesOfRooms.add("Family");
         return typesOfRooms;
+    }
+
+    public int bookingCost(int numberOfNights){
+        return this.nightlyRate * numberOfNights;
     }
 }

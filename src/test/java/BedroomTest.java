@@ -11,13 +11,14 @@ public class BedroomTest {
     Guest guests;
     ArrayList<String> types;
 
+
     @Before
     public void before(){
         types = new ArrayList<String>();
         types.add("Single");
         types.add("Double");
         types.add("Family");
-        room = new Bedroom(32, 4, types);
+        room = new Bedroom(32, 4, types, 100);
     }
 
     @Test
@@ -33,5 +34,10 @@ public class BedroomTest {
     @Test
     public void hasCollectionOfTypes(){
         assertEquals(types, room.getTypesOfRooms());
+    }
+
+    @Test
+    public void canCalculateBookingCost(){
+        assertEquals(600, room.bookingCost(6));
     }
 }
